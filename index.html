@@ -121,8 +121,8 @@ html[data-lang="ja"] .head h2 { font-family: var(--jp); font-weight: 500; letter
 @media (max-width: 760px) { .nums { grid-template-columns: 1fr } .num, .num + .num { padding: 28px 0; border-left: 0; border-bottom: 1px solid var(--hair) } }
 
 /* cards */
-.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink) }
-.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink) }
+.grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--hair) }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-left: 1px solid var(--hair) }
 .card { padding: 36px 32px 40px; border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); display: flex; flex-direction: column; gap: 16px; min-height: 300px; transition: background .35s, color .35s; min-width: 0 }
 .card .idx { color: var(--grey); display: flex; justify-content: space-between }
 .card .idx i { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); align-self: center }
@@ -133,10 +133,9 @@ html[data-lang="ja"] .card h3 { font-family: var(--jp); font-weight: 500; font-s
 .card ul li::before { content: "— "; color: var(--signal) }
 .card:hover { background: var(--graphite); color: var(--white) }
 .card:hover p { color: rgba(255,255,255,.6) }
-.grid3 .card:nth-child(3n), .grid4 .card:nth-child(4n) { border-right: 0 }
-@media (max-width: 1000px) { .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)) } .grid4 .card:nth-child(odd) { border-right: 1px solid var(--hair) } .grid4 .card:nth-child(even) { border-right: 0 } }
-@media (max-width: 860px) { .grid3 { grid-template-columns: 1fr } .grid3 .card { border-right: 0 } .card { min-height: 0 } .card h3 { margin-top: 24px } }
-@media (max-width: 560px) { .grid4 { grid-template-columns: 1fr } .grid4 .card:nth-child(odd) { border-right: 0 } }
+@media (max-width: 1000px) { .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 860px) { .grid3 { grid-template-columns: 1fr } .card { min-height: 0 } .card h3 { margin-top: 24px } }
+@media (max-width: 560px) { .grid4 { grid-template-columns: 1fr } }
 
 /* flow with dimension lines */
 .flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; list-style: none; margin: 0; padding: 0; counter-reset: s }
