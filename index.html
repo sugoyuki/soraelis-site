@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SORAELIS Technologies</title>
+<meta name="description" content="ハイデラバードの精密加工工場で、日本製の工作機械を止めない会社。Keeping Japanese machine tools running in Hyderabad.">
+<meta property="og:title" content="SORAELIS Technologies">
+<meta property="og:description" content="日本の修理・部品・技術を、インドの工場へ。Keeping Japanese machine tools running in Hyderabad.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#16202a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2316202a'/%3E%3Crect x='11' y='11' width='10' height='10' fill='%23d9631e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html { scroll-behavior: smooth; scroll-padding-top: 72px }
+body { margin: 0 }
+img { max-width: 100% }
+
+/* Layout: one narrow industrial column; hero is an engraved machine nameplate, process is read as a signal tower (red → amber → green). */
+:root {
+  --bg: #f3f4f2;
+  --panel: #ffffff;
+  --ink: #16202a;
+  --muted: #5b6672;
+  --line: #d5d9dc;
+  --steel: #2b3a48;
+  --plate: #e4e6e3;
+  --accent: #d9631e;
+  --red: #c8372d;
+  --amber: #d99a12;
+  --green: #2f8a4c;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11171d; --panel: #18212a; --ink: #e7ebee; --muted: #9aa6b1; --line: #2c3742;
+  --steel: #c9d3db; --plate: #222d37; --accent: #ef7a35; --red: #e0574c; --amber: #e8b030; --green: #4fb26c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11171d; --panel: #18212a; --ink: #e7ebee; --muted: #9aa6b1; --line: #2c3742;
+  --steel: #c9d3db; --plate: #222d37; --accent: #ef7a35; --red: #e0574c; --amber: #e8b030; --green: #4fb26c; color-scheme: dark }
+
+html[data-lang="ja"] [data-l="en"], html[data-lang="en"] [data-l="ja"] { display: none !important }
+html[data-lang="ja"] body { font-family: "IBM Plex Sans JP", var(--body) }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+a { color: inherit }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg) }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line) }
+header.top .wrap { display: flex; align-items: center; gap: 20px; padding-block: 12px }
+.mark { font-family: var(--display); font-weight: 800; font-stretch: 118%; letter-spacing: .14em; font-size: 18px; text-decoration: none; display: flex; align-items: center; gap: 10px }
+.mark i { width: 10px; height: 10px; background: var(--accent); display: inline-block }
+nav.links { display: flex; gap: 18px; margin-left: auto; font-size: 14px }
+nav.links a { text-decoration: none; color: var(--muted) }
+nav.links a:hover { color: var(--ink) }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; flex: none }
+.lang button { font: 500 12px var(--mono); background: transparent; color: var(--muted); border: 0; padding: 6px 10px; cursor: pointer }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg) }
+.lang button:focus-visible, a:focus-visible, .copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+@media (max-width: 760px) { nav.links { display: none } .lang { margin-left: auto } }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; padding-block: 72px 64px }
+.eyebrow { font: 500 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+h1 { font-family: var(--display); font-stretch: 92%; font-weight: 750; font-size: clamp(34px, 5.4vw, 60px); line-height: 1.08; letter-spacing: -.01em; margin: 14px 0 20px; text-wrap: balance }
+html[data-lang="ja"] h1 { font-family: "IBM Plex Sans JP", sans-serif; font-weight: 700; letter-spacing: .01em; line-height: 1.25; font-size: clamp(30px, 4.6vw, 50px) }
+h1 em { font-style: normal; color: var(--accent) }
+.lead { font-size: 18px; color: var(--muted); max-width: 34em; margin: 0 }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--ink) }
+.btn.solid { background: var(--ink); color: var(--bg) }
+
+.plate { background: var(--plate); border: 1px solid var(--line); border-radius: 6px; padding: 22px 24px 18px; position: relative; font-family: var(--mono); font-size: 13px; box-shadow: inset 0 1px 0 rgba(255,255,255,.4) }
+.plate::before, .plate::after { content: ""; position: absolute; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--line); box-shadow: inset 0 0 0 2px var(--plate), 0 calc(100% + 0px) 0 transparent }
+.plate::before { left: 10px } .plate::after { right: 10px }
+.plate .brand { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: 26px; letter-spacing: .2em; color: var(--steel); text-align: center; padding-bottom: 12px; border-bottom: 2px solid var(--steel) }
+.plate dl { display: grid; grid-template-columns: auto 1fr; margin: 14px 0 0; border-top: 1px solid var(--line) }
+.plate dt, .plate dd { padding: 8px 0; border-bottom: 1px solid var(--line); margin: 0 }
+.plate dt { color: var(--muted); padding-right: 16px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; align-self: center }
+.plate dd { color: var(--ink); font-weight: 500 }
+.plate .foot { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 11px; color: var(--muted) }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 48px } }
+
+/* sections */
+section.block { border-top: 1px solid var(--line) }
+section.block > .wrap { padding-block: 64px }
+.sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 32px }
+.sec-head h2 { font-family: var(--display); font-stretch: 100%; font-weight: 700; font-size: 28px; line-height: 1.2; margin: 6px 0 0; text-wrap: balance }
+html[data-lang="ja"] .sec-head h2 { font-family: "IBM Plex Sans JP", sans-serif; font-size: 25px }
+.sec-head p { margin: 0; color: var(--muted); max-width: 38em; align-self: end }
+@media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 8px } }
+
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line) }
+.svc { background: var(--panel); padding: 24px; display: flex; flex-direction: column; gap: 10px; min-width: 0 }
+.svc .tag { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent) }
+.svc h3 { margin: 0; font-size: 19px; line-height: 1.35 }
+.svc p { margin: 0; color: var(--muted); font-size: 15px }
+.svc ul { margin: 4px 0 0; padding-left: 18px; font-size: 14px }
+@media (max-width: 860px) { .services { grid-template-columns: 1fr } }
+
+.coverage { display: grid; grid-template-columns: 1fr 1fr; gap: 32px }
+.coverage h3 { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px }
+.chips { display: flex; flex-wrap: wrap; gap: 8px }
+.chip { font: 500 14px var(--mono); padding: 7px 12px; border: 1px solid var(--line); background: var(--panel); border-radius: 3px }
+.chip small { color: var(--muted); font-family: var(--body); margin-left: 6px }
+@media (max-width: 760px) { .coverage { grid-template-columns: 1fr } }
+
+.tower { display: grid; gap: 0; border-left: 3px solid var(--line); margin-left: 9px }
+.step { display: grid; grid-template-columns: 24px 1fr; gap: 18px; padding: 0 0 28px; margin-left: -13.5px }
+.step:last-child { padding-bottom: 0 }
+.lamp { width: 24px; height: 24px; border-radius: 50%; border: 3px solid var(--bg); background: var(--c); box-shadow: 0 0 0 1px var(--line) }
+.step h3 { margin: 0 0 4px; font-size: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline }
+.step h3 span { font: 500 12px var(--mono); color: var(--muted) }
+.step p { margin: 0; color: var(--muted); max-width: 40em }
+
+.partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px }
+.pcard { border: 1px solid var(--line); padding: 20px; background: var(--panel); min-width: 0 }
+.pcard h3 { margin: 0 0 6px; font-size: 16px }
+.pcard p { margin: 0; font-size: 14px; color: var(--muted) }
+@media (max-width: 960px) { .partners { grid-template-columns: 1fr 1fr } }
+@media (max-width: 520px) { .partners { grid-template-columns: 1fr } }
+
+.compliance { background: var(--steel); color: var(--bg) }
+.compliance .wrap { padding-block: 48px; display: grid; grid-template-columns: 220px 1fr; gap: 32px }
+.compliance .eyebrow { color: color-mix(in srgb, var(--bg) 70%, transparent) }
+.compliance h2 { margin: 6px 0 0; font-size: 24px; line-height: 1.3 }
+.compliance ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 44em }
+@media (max-width: 760px) { .compliance .wrap { grid-template-columns: 1fr; gap: 12px } }
+
+.company { width: 100%; border-collapse: collapse; font-size: 15px }
+.company th, .company td { text-align: left; vertical-align: top; padding: 14px 0; border-bottom: 1px solid var(--line) }
+.company th { width: 220px; font-weight: 500; color: var(--muted); padding-right: 24px }
+@media (max-width: 600px) { .company th, .company td { display: block; width: auto; padding: 4px 0 } .company th { padding-top: 14px; border: 0 } }
+
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 16px }
+.ccard { border: 1px solid var(--line); background: var(--panel); padding: 22px; display: grid; gap: 6px; min-width: 0 }
+.ccard .where { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent) }
+.ccard h3 { margin: 0; font-size: 18px }
+.ccard .addr { font: 500 15px var(--mono); overflow-wrap: anywhere; user-select: all }
+.copy { justify-self: start; font: 500 12px var(--mono); background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 3px; padding: 5px 10px; cursor: pointer }
+@media (max-width: 700px) { .contact { grid-template-columns: 1fr } }
+
+footer { border-top: 1px solid var(--line) }
+footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; font-size: 13px; color: var(--muted) }
+
+/* 日本語版（日本の協力会社向け）と英語版（ハイデラバードの工場向け）は別の内容。翻訳ではない */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line) }
+.stat { background: var(--panel); padding: 22px 24px; display: grid; gap: 6px; min-width: 0 }
+.stat b { font-family: var(--display); font-stretch: 90%; font-size: 34px; line-height: 1.1; font-variant-numeric: tabular-nums }
+.stat span { color: var(--muted); font-size: 14px }
+.src { margin-top: 10px; font: 400 12px var(--mono); color: var(--muted) }
+@media (max-width: 760px) { .stats { grid-template-columns: 1fr } }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: f }
+.flow li { counter-increment: f; border-top: 2px solid var(--ink); padding-top: 14px; min-width: 0 }
+.flow li::before { content: counter(f, decimal-leading-zero); font: 500 12px var(--mono); color: var(--accent); display: block; margin-bottom: 6px }
+.flow h3 { margin: 0 0 4px; font-size: 17px }
+.flow p { margin: 0; font-size: 14px; color: var(--muted) }
+@media (max-width: 860px) { .flow { grid-template-columns: 1fr 1fr } }
+@media (max-width: 520px) { .flow { grid-template-columns: 1fr } }
+.cmp-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--panel) }
+.cmp { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 15px }
+.cmp th, .cmp td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top }
+.cmp thead th { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.cmp tbody th { font-weight: 600; white-space: nowrap }
+.cmp tr.us th, .cmp tr.us td { background: color-mix(in srgb, var(--accent) 10%, var(--panel)) }
+.cmp tr:last-child th, .cmp tr:last-child td { border-bottom: 0 }
+.offer { border: 2px solid var(--ink); background: var(--panel); padding: 28px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center }
+.offer h2 { margin: 0 0 8px; font-family: var(--display); font-size: 26px; line-height: 1.2 }
+.offer p { margin: 0; color: var(--muted); max-width: 40em }
+@media (max-width: 700px) { .offer { grid-template-columns: 1fr } }
+
+/* polish */
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility }
+.hero { position: relative; overflow: hidden; background:
+  linear-gradient(var(--bg), transparent 30%, transparent 70%, var(--bg)),
+  repeating-linear-gradient(0deg, color-mix(in srgb, var(--line) 55%, transparent) 0 1px, transparent 1px 32px),
+  repeating-linear-gradient(90deg, color-mix(in srgb, var(--line) 55%, transparent) 0 1px, transparent 1px 32px) }
+.hero .wrap { padding-block: 96px 88px }
+h1 { font-size: clamp(36px, 6vw, 68px); letter-spacing: -.02em }
+html[data-lang="ja"] h1 { word-break: keep-all; font-size: clamp(30px, 4.8vw, 54px); letter-spacing: .02em; line-height: 1.32 }
+.lead { font-size: 17px; line-height: 1.85 }
+.plate { background: linear-gradient(160deg, color-mix(in srgb, var(--plate) 70%, #fff) 0%, var(--plate) 45%, color-mix(in srgb, var(--plate) 88%, var(--ink)) 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 24px 48px -24px color-mix(in srgb, var(--ink) 35%, transparent), 0 2px 6px -2px color-mix(in srgb, var(--ink) 20%, transparent);
+  transform: rotate(-1.2deg); transition: transform .4s ease }
+.plate:hover { transform: rotate(0) }
+@media (prefers-reduced-motion: reduce) { .plate, .plate:hover { transform: none; transition: none } }
+.plate .brand { font-size: 30px; padding-bottom: 14px; border-bottom-width: 3px }
+.btn { transition: transform .15s ease, background .15s ease, color .15s ease }
+.btn:hover { transform: translateY(-1px) }
+.btn:not(.solid):hover { background: var(--ink); color: var(--bg) }
+section.block > .wrap { padding-block: 88px }
+.sec-head { margin-bottom: 40px }
+.sec-head .eyebrow::before { content: ""; display: inline-block; width: 18px; height: 2px; background: var(--accent); vertical-align: middle; margin-right: 10px }
+.svc, .pcard, .stat, .ccard { transition: background .2s ease }
+.pcard { border-top: 3px solid var(--ink) }
+.stat b { color: var(--ink) }
+.stat:first-child b { color: var(--accent) }
+.compliance .wrap { padding-block: 72px }
+@media (max-width: 760px) { .hero .wrap { padding-block: 56px } section.block > .wrap { padding-block: 60px } .plate { transform: none } }
+</style>
+</head>
+<body>
+<!-- ===================== 日本語：日本の修理会社・部品会社・町工場・技術者向け ===================== -->
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top"><i></i>SORAELIS</a>
+    <nav class="links" data-l="ja">
+      <a href="#ja-india">インドの現状</a>
+      <a href="#ja-ask">お願いしたいこと</a>
+      <a href="#ja-flow">お取引の流れ</a>
+      <a href="#ja-company">会社概要</a>
+      <a href="#ja-contact">お問い合わせ</a>
+    </nav>
+    <nav class="links" data-l="en">
+      <a href="#en-services">Services</a>
+      <a href="#en-why">Why us</a>
+      <a href="#en-process">How it works</a>
+      <a href="#en-check">Free health check</a>
+      <a href="#en-contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-ja" data-set="ja">日本語</button>
+      <button type="button" id="lang-en" data-set="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div data-l="ja">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">日本の修理・部品・技術を、インドの工場へ</div>
+        <h1>その技術と部品を、<br><em>インドの工場が<wbr>待っています。</em></h1>
+        <p class="lead">SORAELIS は、インド・ハイデラバードの航空宇宙・精密加工工場で動く日本製工作機械の保守を行う会社です。日本で直せる基板、日本にしかない部品、日本の技術者の経験を、現地の工場につないでいます。</p>
+        <div class="cta">
+          <a class="btn solid" href="#ja-contact">話を聞いてみる</a>
+          <a class="btn" href="#ja-ask">お願いしたいこと</a>
+        </div>
+      </div>
+      <div class="plate" aria-label="会社の銘板">
+        <div class="brand">SORAELIS</div>
+        <dl>
+          <dt>募集</dt><dd>修理・部品・機械・技術者</dd>
+          <dt>対象</dt><dd>FANUC · MELDAS · MAZATROL · OSP</dd>
+          <dt>お取引</dt><dd>日本国内で完結（輸出は当社）</dd>
+          <dt>現地</dt><dd>Hyderabad, India</dd>
+          <dt>窓口</dt><dd>WEST ORANGE（日本語）</dd>
+        </dl>
+        <div class="foot"><span>SORAELIS TECHNOLOGIES PVT. LTD.</span><span>JP ⇄ IN</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ja-india">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">インドの現状</div><h2>日本製の機械は増えているのに、直せる人がいない</h2></div>
+        <p>インドでは日本製の工作機械の輸入が急増しています。一方ハイデラバードでは、MAZATROL・OSP・MELDAS の基板や、主軸・ボールねじを直せる現地業者がほとんど見当たりません。部品待ちで高価な5軸機が何週間も止まることがあります。</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>約9.5億ドル</b><span>日本からインドへの工作機械輸入（2024年）</span></div>
+        <div class="stat"><b>約2.9倍</b><span>2022年からの伸び</span></div>
+        <div class="stat"><b>+92%</b><span>工作機械の部品（HS8466）の輸入、前年比</span></div>
+      </div>
+      <div class="src">出典：UN Comtrade（インドの輸入統計）</div>
+    </div>
+  </section>
+
+  <section class="block" id="ja-ask">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">お願いしたいこと</div><h2>こんな方を探しています</h2></div>
+        <p>海外とのやり取りや英語は当社が引き受けます。日本国内のお客様と同じように、日本語でお取引いただけます。</p>
+      </div>
+      <div class="partners">
+        <div class="pcard"><h3>修理・オーバーホール会社</h3><p>制御基板、サーボアンプ、主軸、ボールねじの修理。インドの機械から外した品を日本にお送りします。</p></div>
+        <div class="pcard"><h3>中古機械・部品商</h3><p>生産終了の基板や部品、予備部品の在庫。型式が合えば継続的にお取引したいと考えています。</p></div>
+        <div class="pcard"><h3>事業を畳む町工場</h3><p>機械と予備部品を引き継ぎ、整備してインドで使い続けます。廃棄するより良い形で役立てます。</p></div>
+        <div class="pcard"><h3>引退された技術者</h3><p>日本から写真や動画で故障を診断し、現地の若い技術者に助言していただく方を探しています。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ja-flow">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">お取引の流れ</div><h2>修理のご依頼から返送まで</h2></div>
+        <p>銘板の写真、アラーム番号、症状をそろえてからご相談します。</p>
+      </div>
+      <ol class="flow">
+        <li><h3>ご相談</h3><p>機種・型式・症状をお伝えし、対応できるかと目安の納期を伺います。</p></li>
+        <li><h3>お見積り</h3><p>費用と納期をいただき、現地の工場と内容を確定します。</p></li>
+        <li><h3>国内でお届け・お引き取り</h3><p>品物は日本国内の当社宛てにお送りします。輸出入・通関・輸出管理の手続きは当社が行います。</p></li>
+        <li><h3>結果のご報告</h3><p>現地で取り付けたあと、動作の結果をお知らせします。次のご依頼につなげます。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="compliance">
+    <div class="wrap">
+      <div><div class="eyebrow">安心してお取引いただくために</div><h2>海外の手続きは、すべて当社で</h2></div>
+      <ul>
+        <li>輸出者として、品目ごとの該非判定とキャッチオールの確認を行います。</li>
+        <li>すべての顧客について、部品の用途と納入先を確認し、記録しています。</li>
+        <li>お取引先は民間航空と一般産業の工場です。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="ja-company">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">会社概要</div><h2>日本とインドの合弁会社</h2></div>
+        <p>日本の調達力と、ハイデラバードの現場を一つの会社にしました。</p>
+      </div>
+      <table class="company">
+        <tr><th>社名</th><td>SORAELIS TECHNOLOGIES PRIVATE LIMITED</td></tr>
+        <tr><th>所在地</th><td>インド テランガナ州 ハイデラバード</td></tr>
+        <tr><th>日本の窓口</th><td>WEST ORANGE</td></tr>
+        <tr><th>事業</th><td>日本製工作機械の部品供給、修理、予防保全、再生機の販売</td></tr>
+        <tr><th>主なお客様</th><td>ハイデラバードの民間航空エンジン整備（MRO）と精密加工工場</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="ja-contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">お問い合わせ</div><h2>まずは、お話を聞かせてください</h2></div>
+        <p>「海外の品は受けたことがない」という段階でも構いません。連絡先はお渡しした名刺をご覧ください。</p>
+      </div>
+      <div class="contact">
+        <div class="ccard">
+          <div class="where">日本の窓口</div>
+          <h3>WEST ORANGE</h3>
+          <p style="margin:0;color:var(--muted)">修理・部品・機械・技術者のご相談</p>
+          <div class="addr">Yuki Sugo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== English: for factories in Hyderabad ===================== -->
+<div data-l="en">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Hyderabad · Japanese machine-tool service</div>
+        <h1>When a Japanese machine stops, we get it <em>running</em> again.</h1>
+        <p class="lead">SORAELIS keeps the Japanese machine tools in Hyderabad's aerospace and precision-machining factories running. We bring repair, parts and engineering experience from Japan, including for older machines the OEM no longer supports well.</p>
+        <div class="cta">
+          <a class="btn solid" href="#en-check">Book a free health check</a>
+          <a class="btn" href="#en-services">Our services</a>
+        </div>
+      </div>
+      <div class="plate" aria-label="Company nameplate">
+        <div class="brand">SORAELIS</div>
+        <dl>
+          <dt>Service</dt><dd>Machine uptime</dd>
+          <dt>Controls</dt><dd>FANUC · MELDAS · MAZATROL · OSP</dd>
+          <dt>Machines</dt><dd>5-axis MC · mill-turn · grinders</dd>
+          <dt>Location</dt><dd>Hyderabad, Telangana</dd>
+          <dt>Sourcing</dt><dd>Japan</dd>
+        </dl>
+        <div class="foot"><span>SORAELIS TECHNOLOGIES PVT. LTD.</span><span>JP ⇄ IN</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="en-services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Services</div><h2>When a machine stops, before it stops, and after</h2></div>
+        <p>A 5-axis machine waiting three weeks for a part can cost you lakhs in lost output, far more than the part. We shorten that wait.</p>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <div class="tag">Breakdown</div>
+          <h3>Fast parts and repair</h3>
+          <p>We find the fastest source among Japanese repair shops, used parts and stock, including discontinued items. Old control boards are repaired in Japan and sent back.</p>
+          <ul>
+            <li>Spindle bearings, ball screws</li>
+            <li>Servo amplifiers, control boards</li>
+            <li>Backup batteries</li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="tag">Preventive</div>
+          <h3>Maintenance contracts</h3>
+          <p>We log run hours, spindle load, vibration, room temperature and voltage to catch failures early, including board damage from voltage fluctuation. Monthly fee with an uptime guarantee.</p>
+        </div>
+        <div class="svc">
+          <div class="tag">Rebuild &amp; skills</div>
+          <h3>Rebuilt machines and engineers</h3>
+          <p>Japanese machines, refurbished and sold with service. Experienced Japanese engineers diagnose remotely and work with our technicians in Hyderabad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="en-why">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Why us</div><h2>Faster than the OEM, more reliable than local repair</h2></div>
+        <p>Your options today, compared honestly.</p>
+      </div>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead><tr><th></th><th>Good at</th><th>Weak at</th></tr></thead>
+          <tbody>
+            <tr><th>OEM service</th><td>Quality, new machines</td><td>Older and second-hand machines, speed, price</td></tr>
+            <tr><th>Local repair</th><td>Price, nearby</td><td>Uneven quality, no access to Japanese parts</td></tr>
+            <tr><th>Generic parts</th><td>Very low price</td><td>Accuracy and life, not aerospace grade</td></tr>
+            <tr class="us"><th>SORAELIS</th><td>Japanese quality, older machines, speed</td><td>We are new, so we start with a few machines at a time</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Coverage</div><h2>Japanese machines and controls</h2></div>
+        <p>Mainly machines that cut aerospace parts around the clock.</p>
+      </div>
+      <div class="coverage">
+        <div>
+          <h3>Controls</h3>
+          <div class="chips">
+            <span class="chip">FANUC</span>
+            <span class="chip">MELDAS / M<small>Mitsubishi</small></span>
+            <span class="chip">MAZATROL<small>Mazak</small></span>
+            <span class="chip">OSP<small>Okuma</small></span>
+          </div>
+        </div>
+        <div>
+          <h3>Machines</h3>
+          <div class="chips">
+            <span class="chip">5-axis machining centres</span>
+            <span class="chip">Mill-turn lathes</span>
+            <span class="chip">CNC lathes</span>
+            <span class="chip">Grinders</span>
+            <span class="chip">EDM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="en-process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">How it works</div><h2>From alarm to running again</h2></div>
+        <p>WhatsApp is fine. A nameplate photo and the alarm number are enough to start.</p>
+      </div>
+      <div class="tower">
+        <div class="step" style="--c: var(--red)"><div class="lamp"></div><div>
+          <h3>You message us<span>ALARM</span></h3>
+          <p>Send a photo of the nameplate (maker, model, serial number, year), the alarm number and what the machine is doing.</p>
+        </div></div>
+        <div class="step" style="--c: var(--amber)"><div class="lamp"></div><div>
+          <h3>Diagnosis<span>CHECK</span></h3>
+          <p>With engineers in Japan we narrow down the failed part and give you options: repair, used or new, each with a price and lead time.</p>
+        </div></div>
+        <div class="step" style="--c: var(--amber)"><div class="lamp"></div><div>
+          <h3>Parts and repair<span>PARTS</span></h3>
+          <p>We handle sourcing, shipping and customs. You deal with one company in Hyderabad and get one invoice in rupees.</p>
+        </div></div>
+        <div class="step" style="--c: var(--green)"><div class="lamp"></div><div>
+          <h3>Running again<span>RUN</span></h3>
+          <p>After fitting and testing, we keep a record of your machine so the next problem is solved faster.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="en-check">
+    <div class="wrap">
+      <div class="offer">
+        <div>
+          <h2>Free health check for one machine</h2>
+          <p>We visit your shop, look at one Japanese machine of your choice and tell you what is likely to fail next: spindle, ball screws, boards or batteries. No cost and no obligation.</p>
+        </div>
+        <a class="btn solid" href="#en-contact">Book a visit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="en-contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Contact</div><h2>Talk to us in Hyderabad</h2></div>
+        <p>English, Telugu or Hindi. Our contact details are on our business card.</p>
+      </div>
+      <div class="contact">
+        <div class="ccard">
+          <div class="where">Hyderabad</div>
+          <h3>SORAELIS Technologies</h3>
+          <p style="margin:0;color:var(--muted)">Repair, parts and health checks</p>
+          <div class="addr">Prajwala</div>
+        </div>
+        <div class="ccard">
+          <div class="where">Japan</div>
+          <h3>Sourcing office</h3>
+          <p style="margin:0;color:var(--muted)">Parts, repair and engineers in Japan</p>
+          <div class="addr">Yuki Sugo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 SORAELIS TECHNOLOGIES PRIVATE LIMITED</span>
+    <span>Hyderabad · Japan</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function setLang(l) {
+    root.setAttribute('data-lang', l);
+    root.lang = l;
+    document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+    try { localStorage.setItem('site-lang', l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('site-lang'); } catch (e) {}
+  setLang(saved === 'en' || saved === 'ja' ? saved : 'ja');
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.set); window.scrollTo(0, 0); });
+  });
+})();
+</script>
+</body>
+</html>
